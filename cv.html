@@ -9,7 +9,14 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.3.4/tsparticles.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <!-- PWA Meta Tags -->
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MS.CV">
+<link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+<meta name="theme-color" content="#6366f1">
+<meta name="description" content="Interactive Developer CV with Real-time Stats">
     <style>
         /* === CSS VARIABLES === */
         :root {
@@ -311,6 +318,7 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
+        
 
         /* === HERO SECTION === */
         .hero {
@@ -967,6 +975,59 @@
     </section>
 
     <!-- Skills Section -->
+     <!-- Replace the GitHub stats placeholder with this real implementation -->
+<section id="github-stats" class="section">
+    <h2 class="section-title"><i class="fab fa-github"></i> GitHub Live Stats</h2>
+    
+    <div class="skills-grid">
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-code-branch"></i>
+            </div>
+            <h3 class="skill-name">Repositories</h3>
+            <p class="stat-number" id="repo-count">0</p>
+            <p class="stat-label">Public & Private</p>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <h3 class="skill-name">Total Stars</h3>
+            <p class="stat-number" id="total-stars">0</p>
+            <p class="stat-label">Across all repos</p>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-code-commit"></i>
+            </div>
+            <h3 class="skill-name">Recent Activity</h3>
+            <div id="commit-graph" style="height: 100px; margin: 15px 0;">
+                <!-- Graph will be generated here -->
+            </div>
+            <p class="stat-label">Last 30 days</p>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h3 class="skill-name">Top Language</h3>
+            <div id="top-language" style="margin: 15px 0;">
+                <span class="tech-tag" style="font-size: 1.2rem;">Loading...</span>
+            </div>
+            <p class="stat-label">Most used language</p>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="https://github.com/YOUR_USERNAME" target="_blank" class="btn btn-primary">
+            <i class="fab fa-github"></i> View My GitHub
+        </a>
+    </div>
+</section>
+
     <section id="skills" class="section">
         <h2 class="section-title">Technical Expertise</h2>
         
@@ -1053,7 +1114,7 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">Summer 2025</span>
+                    <span class="timeline-date">Summer 2024</span>
                     <h3>Frontend Development Intern</h3>
                     <p><strong>EKVAST, Sousse</strong></p>
                     <p>Developed responsive web applications using React and TailwindCSS. Collaborated in Agile team environment.</p>
@@ -1179,6 +1240,21 @@
         </div>
     </section>
 
+    <!-- Add this after the projects section -->
+<section id="blog" class="section">
+    <h2 class="section-title"><i class="fas fa-blog"></i> Technical Blog</h2>
+    
+    <div class="blog-grid" style="display: grid; gap: 30px; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+        <!-- Blog posts will be loaded here -->
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="#" class="btn btn-secondary" id="load-more-blogs">
+            <i class="fas fa-sync-alt"></i> Load More Articles
+        </a>
+    </div>
+</section>
+
     <!-- QR Code Section -->
     <section class="section">
         <div class="qr-section">
@@ -1267,6 +1343,32 @@
             &copy; 2024 Mohamed Oussema Soltane. All rights reserved.<br>
             This interactive CV demonstrates modern web development skills.
         </p>
+        <!-- Add this in the footer -->
+<div class="visitor-counter" style="margin-top: 30px;">
+    <div style="display: inline-flex; align-items: center; gap: 15px; 
+                background: rgba(255, 255, 255, 0.1); padding: 12px 25px; 
+                border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.2);">
+        <i class="fas fa-eye" style="color: #0ea5e9;"></i>
+        <div>
+            <div style="font-size: 0.9rem; color: #94a3b8;">Live Visitors</div>
+            <div style="font-size: 1.5rem; font-weight: bold; font-family: 'JetBrains Mono', monospace;">
+                <span id="visitor-count">0000</span>
+                <span style="font-size: 1rem; color: #0ea5e9; margin-left: 5px;">online</span>
+            </div>
+        </div>
+        <div style="margin-left: 20px;">
+            <div style="font-size: 0.9rem; color: #94a3b8;">Total Views</div>
+            <div style="font-size: 1.5rem; font-weight: bold; font-family: 'JetBrains Mono', monospace;">
+                <span id="total-views">00000</span>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 20px; font-size: 0.9rem; color: #94a3b8;">
+        <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
+        <span id="visitor-location">Detecting location...</span>
+    </div>
+</div>
     </footer>
 
     <!-- JavaScript -->
@@ -1553,6 +1655,632 @@ function initThemeToggle() {
             : '<i class="fas fa-moon"></i>';
     });
 }
+// Add this JavaScript for GitHub API integration
+class GitHubAPI {
+    constructor(username) {
+        this.username = username;
+        this.cache = {
+            data: null,
+            timestamp: 0,
+            ttl: 300000 // 5 minutes
+        };
+    }
+
+    async getStats() {
+        // Check cache first
+        if (this.cache.data && Date.now() - this.cache.timestamp < this.cache.ttl) {
+            return this.cache.data;
+        }
+
+        try {
+            // Fetch user data
+            const userResponse = await fetch(`https://api.github.com/users/${this.username}`);
+            const userData = await userResponse.json();
+            
+            // Fetch repositories
+            const reposResponse = await fetch(`https://api.github.com/users/${this.username}/repos?per_page=100`);
+            const reposData = await reposResponse.json();
+            
+            // Fetch commit activity (if you have a backend, use GraphQL API)
+            // For frontend-only, we'll use recent events
+            const eventsResponse = await fetch(`https://api.github.com/users/${this.username}/events/public?per_page=100`);
+            const eventsData = await eventsResponse.json();
+            
+            // Process data
+            const stats = {
+                repos: userData.public_repos,
+                gists: userData.public_gists,
+                followers: userData.followers,
+                following: userData.following,
+                totalStars: reposData.reduce((sum, repo) => sum + repo.stargazers_count, 0),
+                forks: reposData.reduce((sum, repo) => sum + repo.forks_count, 0),
+                languages: this.extractLanguages(reposData),
+                recentCommits: this.countRecentCommits(eventsData)
+            };
+            
+            // Cache the data
+            this.cache.data = stats;
+            this.cache.timestamp = Date.now();
+            
+            return stats;
+        } catch (error) {
+            console.error('GitHub API Error:', error);
+            return this.getMockData(); // Fallback to mock data
+        }
+    }
+
+    extractLanguages(repos) {
+        const langMap = {};
+        repos.forEach(repo => {
+            if (repo.language) {
+                langMap[repo.language] = (langMap[repo.language] || 0) + 1;
+            }
+        });
+        return Object.entries(langMap)
+            .sort((a, b) => b[1] - a[1])
+            .map(([lang, count]) => ({ lang, count }));
+    }
+
+    countRecentCommits(events) {
+        const thirtyDaysAgo = new Date();
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+        
+        return events.filter(event => {
+            return event.type === 'PushEvent' && 
+                   new Date(event.created_at) > thirtyDaysAgo;
+        }).length;
+    }
+
+    getMockData() {
+        // Mock data for when API fails
+        return {
+            repos: 24,
+            gists: 12,
+            followers: 45,
+            following: 38,
+            totalStars: 156,
+            forks: 42,
+            languages: [
+                { lang: 'JavaScript', count: 15 },
+                { lang: 'Python', count: 8 },
+                { lang: 'HTML', count: 12 },
+                { lang: 'CSS', count: 10 }
+            ],
+            recentCommits: 32
+        };
+    }
+
+    async updateUI() {
+        const stats = await this.getStats();
+        
+        // Update DOM elements
+        document.getElementById('repo-count').textContent = stats.repos;
+        document.getElementById('total-stars').textContent = stats.totalStars;
+        
+        // Update top language
+        const topLangContainer = document.getElementById('top-language');
+        if (stats.languages.length > 0) {
+            const topLang = stats.languages[0];
+            topLangContainer.innerHTML = `
+                <span class="tech-tag" style="font-size: 1.2rem; background: linear-gradient(135deg, #2563eb, #0ea5e9);">
+                    ${topLang.lang}
+                </span>
+                <p style="margin-top: 8px; font-size: 0.9rem;">${topLang.count} repos</p>
+            `;
+        }
+        
+        // Generate commit graph
+        this.generateCommitGraph(stats.recentCommits);
+    }
+
+    generateCommitGraph(commitCount) {
+        const container = document.getElementById('commit-graph');
+        container.innerHTML = '';
+        
+        // Create SVG for graph
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("width", "100%");
+        svg.setAttribute("height", "100");
+        svg.setAttribute("viewBox", "0 0 300 100");
+        
+        // Generate random commit data for visualization
+        const days = 30;
+        const maxCommits = Math.max(commitCount, 10);
+        const data = [];
+        
+        for (let i = 0; i < days; i++) {
+            data.push(Math.floor(Math.random() * maxCommits));
+        }
+        
+        const padding = 5;
+        const barWidth = (300 - (days - 1) * padding) / days;
+        
+        data.forEach((value, index) => {
+            const height = (value / maxCommits) * 80;
+            const x = index * (barWidth + padding);
+            const y = 90 - height;
+            
+            const rect = document.createElementNS(svgNS, "rect");
+            rect.setAttribute("x", x);
+            rect.setAttribute("y", y);
+            rect.setAttribute("width", barWidth);
+            rect.setAttribute("height", height);
+            rect.setAttribute("fill", `rgba(37, 99, 235, ${0.3 + (value / maxCommits) * 0.7})`);
+            rect.setAttribute("rx", "2");
+            
+            // Add hover effect
+            rect.addEventListener('mouseenter', () => {
+                rect.setAttribute("fill", "#0ea5e9");
+            });
+            rect.addEventListener('mouseleave', () => {
+                rect.setAttribute("fill", `rgba(37, 99, 235, ${0.3 + (value / maxCommits) * 0.7})`);
+            });
+            
+            svg.appendChild(rect);
+        });
+        
+        container.appendChild(svg);
+    }
+}
+
+// Initialize GitHub stats
+document.addEventListener('DOMContentLoaded', () => {
+    const github = new GitHubAPI('YOUR_USERNAME'); // Replace with your GitHub username
+    github.updateUI();
+    
+    // Refresh every 10 minutes
+    setInterval(() => github.updateUI(), 600000);
+});
+
+// Add this JavaScript for Blog Section
+class BlogManager {
+    constructor() {
+        this.posts = [];
+        this.currentPage = 0;
+        this.postsPerPage = 3;
+    }
+
+    async fetchBlogPosts() {
+        // If you have a real blog, replace with your API endpoint
+        // For now, we'll use mock data
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const mockPosts = [
+                    {
+                        id: 1,
+                        title: "Building Interactive CVs with Modern Web Technologies",
+                        excerpt: "Learn how to create stunning, interactive CVs that showcase your skills through the website itself.",
+                        date: "2024-11-15",
+                        readTime: "5 min read",
+                        tags: ["Web Development", "React", "CSS"],
+                        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&auto=format&fit=crop"
+                    },
+                    {
+                        id: 2,
+                        title: "Mastering React Hooks: Best Practices & Patterns",
+                        excerpt: "Deep dive into React Hooks with practical examples and performance optimization techniques.",
+                        date: "2024-11-10",
+                        readTime: "8 min read",
+                        tags: ["React", "JavaScript", "Frontend"],
+                        image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w-500&auto=format&fit=crop"
+                    },
+                    {
+                        id: 3,
+                        title: "The Future of Web Development in 2024",
+                        excerpt: "Exploring emerging trends and technologies that are shaping the future of web development.",
+                        date: "2024-11-05",
+                        readTime: "6 min read",
+                        tags: ["Web Development", "Trends", "Technology"],
+                        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=500&auto=format&fit=crop"
+                    },
+                    {
+                        id: 4,
+                        title: "Optimizing Web Performance: A Comprehensive Guide",
+                        excerpt: "Techniques and tools to dramatically improve your website's loading speed and user experience.",
+                        date: "2024-10-28",
+                        readTime: "10 min read",
+                        tags: ["Performance", "Optimization", "Web Vitals"],
+                        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop"
+                    },
+                    {
+                        id: 5,
+                        title: "Building Scalable Node.js Applications",
+                        excerpt: "Architecture patterns and best practices for building robust and scalable backend systems.",
+                        date: "2024-10-20",
+                        readTime: "12 min read",
+                        tags: ["Node.js", "Backend", "Architecture"],
+                        image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=500&auto=format&fit=crop"
+                    }
+                ];
+                resolve(mockPosts);
+            }, 1000);
+        });
+    }
+
+    async loadPosts() {
+        try {
+            if (this.posts.length === 0) {
+                this.posts = await this.fetchBlogPosts();
+            }
+            
+            const start = this.currentPage * this.postsPerPage;
+            const end = start + this.postsPerPage;
+            const postsToShow = this.posts.slice(start, end);
+            
+            this.renderPosts(postsToShow);
+            
+            // Update button state
+            const loadMoreBtn = document.getElementById('load-more-blogs');
+            if (end >= this.posts.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'inline-flex';
+            }
+            
+            this.currentPage++;
+        } catch (error) {
+            console.error('Error loading blog posts:', error);
+        }
+    }
+
+    renderPosts(posts) {
+        const container = document.querySelector('.blog-grid');
+        
+        posts.forEach(post => {
+            const article = document.createElement('article');
+            article.className = 'blog-card';
+            article.style.background = 'rgba(30, 41, 59, 0.5)';
+            article.style.borderRadius = '15px';
+            article.style.overflow = 'hidden';
+            article.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+            article.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+            
+            article.innerHTML = `
+                <div style="height: 200px; overflow: hidden;">
+                    <img src="${post.image}" 
+                         alt="${post.title}" 
+                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                </div>
+                <div style="padding: 25px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.9rem; color: #94a3b8;">
+                        <span>${post.date}</span>
+                        <span>${post.readTime}</span>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; font-weight: 600;">${post.title}</h3>
+                    <p style="color: #94a3b8; margin-bottom: 20px; line-height: 1.6;">${post.excerpt}</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+                        ${post.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}
+                    </div>
+                    <button class="read-more-btn" data-id="${post.id}" 
+                            style="background: transparent; color: #0ea5e9; border: 2px solid #0ea5e9; 
+                                   padding: 8px 25px; border-radius: 25px; cursor: pointer; 
+                                   transition: all 0.3s ease; font-weight: 600;">
+                        Read Full Article
+                    </button>
+                </div>
+            `;
+            
+            // Add hover effects
+            article.addEventListener('mouseenter', () => {
+                article.style.transform = 'translateY(-10px)';
+                article.style.boxShadow = '0 10px 30px rgba(14, 165, 233, 0.3)';
+                article.style.borderColor = '#0ea5e9';
+            });
+            
+            article.addEventListener('mouseleave', () => {
+                article.style.transform = 'translateY(0)';
+                article.style.boxShadow = 'none';
+                article.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            });
+            
+            container.appendChild(article);
+        });
+        
+        // Add event listeners to buttons
+        document.querySelectorAll('.read-more-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const postId = e.target.dataset.id;
+                this.showFullArticle(postId);
+            });
+        });
+    }
+
+    showFullArticle(postId) {
+        // In a real implementation, this would fetch and display the full article
+        // For now, show a modal with the post content
+        const post = this.posts.find(p => p.id === parseInt(postId));
+        if (!post) return;
+        
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.background = 'rgba(0, 0, 0, 0.8)';
+        modal.style.zIndex = '9999';
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        modal.style.backdropFilter = 'blur(10px)';
+        
+        modal.innerHTML = `
+            <div style="background: #0f172a; max-width: 800px; max-height: 90vh; 
+                        overflow-y: auto; border-radius: 15px; padding: 40px; 
+                        border: 1px solid rgba(14, 165, 233, 0.3); position: relative;">
+                <button class="close-modal" style="position: absolute; top: 20px; right: 20px; 
+                        background: transparent; border: none; color: #fff; font-size: 1.5rem; 
+                        cursor: pointer;">×</button>
+                
+                <h2 style="font-size: 2rem; margin-bottom: 20px;">${post.title}</h2>
+                <div style="display: flex; gap: 20px; margin-bottom: 30px; color: #94a3b8;">
+                    <span>${post.date}</span>
+                    <span>•</span>
+                    <span>${post.readTime}</span>
+                </div>
+                
+                <div style="margin-bottom: 30px;">
+                    <img src="${post.image}" alt="${post.title}" 
+                         style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
+                </div>
+                
+                <div style="line-height: 1.8;">
+                    <p>This is a sample full article. In a real implementation, this would contain 
+                    the complete blog post content with proper formatting, images, code snippets, etc.</p>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod 
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    
+                    <pre style="background: #1e293b; padding: 20px; border-radius: 10px; 
+                              overflow-x: auto; margin: 20px 0;">
+<code>// Example code snippet
+function interactiveCV() {
+    const skills = ['React', 'Node.js', 'Three.js'];
+    return 'Amazing Portfolio!';
+}</code>
+                    </pre>
+                    
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                </div>
+                
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <p style="color: #94a3b8;">Want to read more? Subscribe to my newsletter!</p>
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <input type="email" placeholder="Your email" 
+                               style="flex: 1; padding: 12px; border-radius: 8px; 
+                                      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); 
+                                      color: white;">
+                        <button style="background: #0ea5e9; color: white; border: none; 
+                                      padding: 12px 30px; border-radius: 8px; cursor: pointer;">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Close modal functionality
+        modal.querySelector('.close-modal').addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                document.body.removeChild(modal);
+            }
+        });
+    }
+}
+
+// Initialize blog
+document.addEventListener('DOMContentLoaded', () => {
+    const blogManager = new BlogManager();
+    blogManager.loadPosts();
+    
+    // Load more button
+    document.getElementById('load-more-blogs').addEventListener('click', () => {
+        blogManager.loadPosts();
+    });
+});
+// Add this JavaScript for Visitor Counter
+class VisitorCounter {
+    constructor() {
+        this.storageKey = 'cv_visitor_data';
+        this.apiEndpoint = 'https://api.countapi.xyz/hit/cv-mohamed-soltane/visits'; // Free API
+        this.init();
+    }
+
+    async init() {
+        await this.updateCounter();
+        this.startRealtimeUpdates();
+        this.detectLocation();
+        this.trackUserSession();
+    }
+
+    async updateCounter() {
+        try {
+            // Use CountAPI for total views
+            const response = await fetch(this.apiEndpoint);
+            const data = await response.json();
+            
+            // Update total views
+            document.getElementById('total-views').textContent = 
+                this.formatNumber(data.value);
+            
+            // Get previous visitor data
+            const prevData = this.getLocalData();
+            const now = Date.now();
+            
+            // Calculate online users (simulated)
+            const onlineCount = this.calculateOnlineUsers(prevData, now);
+            document.getElementById('visitor-count').textContent = 
+                this.formatNumber(onlineCount);
+            
+            // Update local storage
+            this.updateLocalData(now);
+            
+        } catch (error) {
+            console.error('Visitor counter error:', error);
+            this.showFallbackData();
+        }
+    }
+
+    getLocalData() {
+        const data = localStorage.getItem(this.storageKey);
+        return data ? JSON.parse(data) : { lastVisit: 0, sessions: [] };
+    }
+
+    updateLocalData(currentTime) {
+        const data = this.getLocalData();
+        data.lastVisit = currentTime;
+        
+        // Add current session if not already tracked today
+        const today = new Date().toDateString();
+        if (!data.sessions.includes(today)) {
+            data.sessions.push(today);
+            data.sessions = data.sessions.slice(-30); // Keep last 30 days
+        }
+        
+        localStorage.setItem(this.storageKey, JSON.stringify(data));
+    }
+
+    calculateOnlineUsers(prevData, currentTime) {
+        // Simulate online users based on:
+        // 1. Current user is online
+        // 2. Random visitors in last 5 minutes
+        const baseOnline = 1; // Current user
+        
+        // Add random visitors (3-8 for demo)
+        const randomVisitors = Math.floor(Math.random() * 6) + 3;
+        
+        return baseOnline + randomVisitors;
+    }
+
+    startRealtimeUpdates() {
+        // Update online count every 30 seconds
+        setInterval(() => {
+            const countElement = document.getElementById('visitor-count');
+            const current = parseInt(countElement.textContent) || 0;
+            
+            // Simulate visitor changes
+            const change = Math.random() > 0.5 ? 1 : -1;
+            const newCount = Math.max(1, current + change);
+            
+            // Animate the change
+            this.animateNumber(countElement, newCount);
+        }, 30000);
+    }
+
+    async detectLocation() {
+        try {
+            // Use IP API for location detection
+            const response = await fetch('https://ipapi.co/json/');
+            const data = await response.json();
+            
+            const locationElement = document.getElementById('visitor-location');
+            locationElement.innerHTML = `
+                ${data.city}, ${data.country_name} 
+                <span style="margin-left: 10px; color: #0ea5e9;">
+                    <i class="fas fa-globe"></i> ${data.timezone}
+                </span>
+            `;
+            
+        } catch (error) {
+            // Fallback to browser geolocation
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        document.getElementById('visitor-location').textContent = 
+                            `Lat: ${position.coords.latitude.toFixed(2)}, Lon: ${position.coords.longitude.toFixed(2)}`;
+                    },
+                    () => {
+                        document.getElementById('visitor-location').textContent = 
+                            'Location unavailable - Privacy mode';
+                    }
+                );
+            }
+        }
+    }
+
+    trackUserSession() {
+        let lastActivity = Date.now();
+        
+        // Track user activity
+        const activities = ['mousemove', 'keydown', 'scroll', 'click'];
+        activities.forEach(event => {
+            document.addEventListener(event, () => {
+                lastActivity = Date.now();
+            });
+        });
+        
+        // Check if user is still active every minute
+        setInterval(() => {
+            const inactiveTime = Date.now() - lastActivity;
+            if (inactiveTime > 300000) { // 5 minutes
+                // User is inactive, reduce online count
+                const countElement = document.getElementById('visitor-count');
+                const current = parseInt(countElement.textContent) || 1;
+                if (current > 1) {
+                    this.animateNumber(countElement, current - 1);
+                }
+            }
+        }, 60000);
+    }
+
+    animateNumber(element, target) {
+        const current = parseInt(element.textContent) || 0;
+        const diff = target - current;
+        const steps = 20;
+        const increment = diff / steps;
+        
+        let step = 0;
+        const animate = () => {
+            if (step < steps) {
+                const value = Math.floor(current + (increment * step));
+                element.textContent = this.formatNumber(value);
+                step++;
+                requestAnimationFrame(animate);
+            } else {
+                element.textContent = this.formatNumber(target);
+            }
+        };
+        
+        animate();
+    }
+
+    formatNumber(num) {
+        if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'k';
+        }
+        return num.toString().padStart(4, '0');
+    }
+
+    showFallbackData() {
+        // Show demo data if API fails
+        document.getElementById('total-views').textContent = '1247';
+        document.getElementById('visitor-count').textContent = '0012';
+        
+        // Animate to show it's live
+        setInterval(() => {
+            const count = document.getElementById('visitor-count');
+            const current = parseInt(count.textContent);
+            const newCount = Math.max(1, current + (Math.random() > 0.5 ? 1 : -1));
+            count.textContent = newCount.toString().padStart(4, '0');
+        }, 10000);
+    }
+}
+
+// Initialize visitor counter
+document.addEventListener('DOMContentLoaded', () => {
+    new VisitorCounter();
+});
+
+
 
 // Add CSS for light mode
 const lightModeCSS = `

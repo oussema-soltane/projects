@@ -1,0 +1,33 @@
+{
+  "name": "ultimate-interactive-cv",
+  "version": "2.0.0",
+  "description": "The most advanced interactive CV with real-time features",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "build": "node build.js",
+    "deploy": "sh deploy.sh",
+    "generate-icons": "node generate-icons.js",
+    "optimize": "node optimize.js"
+  },
+  "dependencies": {
+    "three": "^0.158.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "terser": "^5.24.0",
+    "cssnano": "^6.0.1",
+    "html-minifier": "^4.0.0",
+    "sharp": "^0.32.6"
+  },
+  "keywords": [
+    "cv",
+    "portfolio",
+    "interactive",
+    "developer",
+    "webgl",
+    "pwa"
+  ],
+  "author": "Mohamed Oussema Soltane",
+  "license": "MIT"
+}
